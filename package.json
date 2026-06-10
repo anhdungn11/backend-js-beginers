@@ -1,0 +1,26 @@
+{
+  "name": "hocjs-it",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/anhdungn11/backend-js-beginers#readme",
+  "bugs": {
+    "url": "https://github.com/anhdungn11/backend-js-beginers/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anhdungn11/backend-js-beginers.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "sever.js",
+  "scripts": {
+    "start": "node sever.js",
+    "dev": "nodemon sever.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "4.18.2"
+  }
+ 
+}
