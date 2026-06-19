@@ -2,15 +2,15 @@ const express = require('express');
 require('dotenv').config();
 const path = require('path');
 const connection = require('./Config/Database'); // Import kết nối MySQL từ file Database.js
-const app = express();
+const app = express(); // Tạo một ứng dụng Express
  const webRoutes = require('./Routes/web'); // Import các route từ file web.js
-const configViewsEngine = require('./Config/ViewsEngine');
+const configViewsEngine = require('./Config/ViewsEngine'); 
 
 configViewsEngine(app); 
 
 // Sử dụng các route đã import
-app.use('/thu',webRoutes); //khai bao routes cho app, tất cả các route trong webRoutes sẽ được sử dụng trong ứng dụng Express của bạn
-app.use('/thu1',webRoutes); //khai bao routes cho app, tất cả các route trong webRoutes sẽ được sử dụng trong ứng dụng Express của bạn
+app.use('/',webRoutes); //khai bao routes cho app, tất cả các route trong webRoutes sẽ được sử dụng trong ứng dụng Express của bạn
+app.use('/',webRoutes); //khai bao routes cho app, tất cả các route trong webRoutes sẽ được sử dụng trong ứng dụng Express của bạn
 // đây là cách phân biệt các route của trang web , kiểu như là url
 
 const port = process.env.PORT || 3000;

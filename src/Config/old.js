@@ -2,13 +2,17 @@
 //config la noi sua doi khi can thiet, dung de cai dat cac thuoc tinh, ham, cau lenh lien quan den mysql
 const mysql = require('mysql2'); // Import thư viện mysql2 để làm việc với MySQL
 dotenv = require('dotenv').config(); // Load biến môi trường từ file .env
-// const connection = mysql.createConnection({
-//   host: process.env.DB_HOST ,
-//   port: process.env.DB_PORT ,
-//   user: process.env.DB_USER  ,
-//   password: process.env.DB_PASSWORD,
-//   database: process.env.DB_NAME 
-// });
+//createConnection: tạo một kết nối duy nhất đến cơ sở dữ liệu MySQL
+const connection = mysql.createConnection({
+  host: process.env.DB_HOST ,
+  port: process.env.DB_PORT ,
+  user: process.env.DB_USER  ,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME 
+});
+
+
+// createPool: tạo một nhóm kết nối (connection pool) để quản lý nhiều kết nối đến cơ sở dữ liệu MySQL 
 const connection = mysql.createPool({
   host: process.env.DB_HOST ,
   port: process.env.DB_PORT ,
