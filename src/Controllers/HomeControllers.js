@@ -11,9 +11,13 @@ const getTrangTiep=(req,res)=>{
 const getTrang2=(req,res)=>{
     res.send('check thu trang 2'); // Gửi phản hồi "check thu" khi truy cập vào trang tiếp theo
 }
-
+const postCreateUser=(req,res)=>{
+    console.log(">>>>req.body :",req.body) // lay ra thong tin nguoi dung
+res.send('create new user') // tra ra ket qua cho nguoi dung 
+}
 module.exports={
      getHomePage:getHomePage,
     getTrangTiep:getTrangTiep,
-    getTrang2:getTrang2
+    getTrang2:getTrang2,
+    postCreateUser
 }
