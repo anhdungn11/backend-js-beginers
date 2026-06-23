@@ -25,14 +25,15 @@ const hostname = process.env.HOST_NAME || 'localhost';
 //test connection mysql
 
 
- connection.query(
-  'SELECT * FROM Users u' ,
-  function(err, results, fields) {
-    console.log("kq",results); // Kết quả trả về từ truy vấn SQL
-    console.log("kq2",fields); // Thông tin về các trường trong kết quả truy vấn
-  }
- );
+//  connection.query(
+//    'SELECT * FROM Users u' ,
+//    function(err, results, fields) {
+//      console.log("kq",results); // Kết quả trả về từ truy vấn SQL
+//      console.log("kq2",fields); // Thông tin về các trường trong kết quả truy vấn
+//    }
+//   );
 
 app.listen(port, hostname, () => {
-  console.log(`Server running at http://${hostname}:${port}`);
+  console.log(`Server running at http://${hostname}:${port}`); 
+  
 });

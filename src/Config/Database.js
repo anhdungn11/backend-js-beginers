@@ -1,6 +1,6 @@
 //config dung de lam viec voi mysql
 //config la noi sua doi khi can thiet, dung de cai dat cac thuoc tinh, ham, cau lenh lien quan den mysql
-const mysql = require('mysql2'); // Import thư viện mysql2 để làm việc với MySQL
+const mysql = require('mysql2/promise'); // Import thư viện mysql2 để làm việc với MySQL
 dotenv = require('dotenv').config(); // Load biến môi trường từ file .env
 // const connection = mysql.createConnection({
 //   host: process.env.DB_HOST ,
