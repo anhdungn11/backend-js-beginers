@@ -6,6 +6,18 @@ const getHomePage=async(req,res)=>{
    return res.render('home.ejs',{ListUsers: results});
    
 }
+
+
+const getUpdatePage =(req,res)=>{
+    const UserId = req.params.id;
+    console.log(req.params,UserId);
+    res.render('Edit.ejs');
+}
+// const postUpdatePage=async(req,res)=>{
+//     res.send("hello")
+// }
+
+
 const getTrangTiep=(req,res)=>{
     res.send('check thu'); // Gửi phản hồi "check thu" khi truy cập vào trang tiếp theo
 }
@@ -59,5 +71,6 @@ module.exports={
     getTrangTiep:getTrangTiep,
     getTrang2:getTrang2,
     postCreateUser,
-    getCreatePage
+    getCreatePage,
+    getUpdatePage
 }
