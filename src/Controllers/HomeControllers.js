@@ -8,9 +8,19 @@ const getHomePage=async(req,res)=>{
 }
 
 
-const getUpdatePage =(req,res)=>{
+const getUpdatePage =async (req,res)=>{
     const UserId = req.params.id;
-    console.log(req.params,UserId);
+    let [results,fields] = await connection.query('select * from Users where id =?',[UserId]);
+    console.log("check results :<<<<<<" , results);  
+
+    let user = results && results.length > 0 ?  results[0] : {}; 
+    // phan tich code nay : results && : day la kiem tra xem co ton tai hay k
+    // results.length >0 : kiem tra xem co du lieu khong
+    //  ? results[0] : neu co du lieu thi lay ra phan tu dau tien 
+    // :{} neu kh co tra ve rong 
+
+    //  CODE NAY LA DE NGAN APP CHET, TRANH USER NHAP URL TAM BAY MA VAN RA 
+
     res.render('Edit.ejs');
 }
 // const postUpdatePage=async(req,res)=>{
