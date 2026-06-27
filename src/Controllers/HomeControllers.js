@@ -21,7 +21,7 @@ const getUpdatePage =async (req,res)=>{
 
     //  CODE NAY LA DE NGAN APP CHET, TRANH USER NHAP URL TAM BAY MA VAN RA 
 
-    res.render('Edit.ejs');
+    res.render('Edit.ejs',{userEdit:user}); // userEdit la ten bien de tai su dung lai ben view
 }
 // const postUpdatePage=async(req,res)=>{
 //     res.send("hello")
