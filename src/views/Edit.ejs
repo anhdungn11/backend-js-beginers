@@ -7,7 +7,9 @@
    <link rel="stylesheet" href="/css/styles.css">   
 </head>
 <body>
-    <%= JSON.stringify(userEdit) %>
+    <!-- dung thuoc tinh name de lay ra thong tin tu phia backend -->
+    <!-- <%= JSON.stringify(userEdit) %> -->
+
         <div class="topnav">
   <a  href="/">Home</a>
   <!-- cai nay cua get trong routes -->
@@ -16,11 +18,15 @@
 </div>                                                                              
 
     
-  <!-- dung thuoc tinh name de lay ra thong tin tu phia backend -->
+  
     <div class="form"> 
-        <form action="/create-user" method="POST">   
+        <form action="/update-user" method="POST">   
           <fieldset>
             <legend>Update A User</legend>
+            <div class="input-group d-none">
+                <label>ID of user</label>
+                <input type="text" name="userId" value="<%= userEdit.id %>">
+            </div>
         <div class="input-group">
             <label>Email:</label>
             <input type="text" name="email" value="<%= userEdit.email %>"> 

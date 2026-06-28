@@ -1,5 +1,5 @@
 const connection = require('../Config/Database')
-const{getAllUsers}=require('../Services/CRUDServices');
+const{getAllUsers,getUserById , updateUserById ,}=require('../Services/CRUDServices');
 const getHomePage=async(req,res)=>{ 
    let results = await getAllUsers();
     
@@ -10,10 +10,10 @@ const getHomePage=async(req,res)=>{
 
 const getUpdatePage =async (req,res)=>{
     const UserId = req.params.id;
-    let [results,fields] = await connection.query('select * from Users where id =?',[UserId]);
-    console.log("check results :<<<<<<" , results);  
+    let user =await getUserById(UserId);
+    
 
-    let user = results && results.length > 0 ?  results[0] : {}; 
+   
     // phan tich code nay : results && : day la kiem tra xem co ton tai hay k
     // results.length >0 : kiem tra xem co du lieu khong
     //  ? results[0] : neu co du lieu thi lay ra phan tu dau tien 
@@ -53,11 +53,27 @@ let [results,fields]= await connection.query(
         `INSERT INTO Users (email,name,city)  VALUES (?,?,?)`, [email,name,city]
         
     );
-     res.send("success");
+     res.send("success"); 
+}
+
+const postUpdateUser=async (req,res)=>{
+    
+        let email = req.body.email;  
+        let name = req.body.name;  
+        let city = req.body.city;
+        let userId = req.body.userId;
+   
+    //  let {email,name,city} = req.body;
+    // console.log("email=",email ,"name=" , name , "city= ", city , "User-id" , userId )
+        await updateUserById(email,name,city,userId);
+
+    //  res.send("update success");
+    res.redirect('/'); // day la duong link dua nguoi dung den , cai phan trong ngoac la cua route , muon dua nguoi dung den dau thi gan route do
    
     
     
 }
+
 
 // connection.query(   // ket noi voi csdl luu truc tiep tu client
 // `INSERT INTO Users (email,name,city) 
@@ -82,5 +98,7 @@ module.exports={
     getTrang2:getTrang2,
     postCreateUser,
     getCreatePage,
-    getUpdatePage
+    getUpdatePage,
+    postUpdateUser,
+    postUpdateUser
 }
